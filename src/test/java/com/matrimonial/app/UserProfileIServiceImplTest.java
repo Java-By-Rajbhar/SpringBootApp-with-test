@@ -27,7 +27,17 @@ public class UserProfileIServiceImplTest {
 	UserProfilesIServiceImpl userProfileIServiceImpl;
 	
 	@Test
-	public void testRegisterUser() 
+	public void test1RegisterUser() 
+	{
+		UserProfiles userProfile =new UserProfiles("deep123", "123", "deepika", "salem", "female", 49, "obc");
+		Mockito.when(userProfilesIDao.save(userProfile)).thenReturn(userProfile);
+		UserProfiles actualVal=userProfileIServiceImpl.registerUser(userProfile);
+		Assert.assertEquals(userProfile, actualVal);
+		
+	}
+
+	@Test
+	public void test2RegisterUser() 
 	{
 		UserProfiles userProfile =new UserProfiles("deep123", "123", "deepika", "salem", "female", 49, "obc");
 		Mockito.when(userProfilesIDao.save(userProfile)).thenReturn(userProfile);

@@ -16,7 +16,22 @@ public class InterestShown {
 	private String fromId;
 	private String targetId;
 	private String date;
+	private String targetIdInterest;
+	private String fromIdInterest;
+
 	
+	public String getTargetIdInterest() {
+		return targetIdInterest;
+	}
+	public void setTargetIdInterest(String targetIdInterest) {
+		this.targetIdInterest = targetIdInterest;
+	}
+	public String getFromIdInterest() {
+		return fromIdInterest;
+	}
+	public void setFromIdInterest(String fromIdInterest) {
+		this.fromIdInterest = fromIdInterest;
+	}
 	public int getIntrestedId() {
 		return intrestedId;
 	}

@@ -66,6 +66,10 @@ public class UserProfiles {
 		this.age = age;
 		this.cast = cast;
 	}
+	public UserProfiles() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	private String city;
 	private String gender;
 	private int age;

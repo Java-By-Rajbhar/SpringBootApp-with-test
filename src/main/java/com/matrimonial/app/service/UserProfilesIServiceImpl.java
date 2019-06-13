@@ -1,5 +1,7 @@
 package com.matrimonial.app.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,5 +21,23 @@ public class UserProfilesIServiceImpl implements UserProfilesIService {
 		  return userProfileDao.save(userProfiles);
 	
 	}
+
+
+	@Override
+	public List<UserProfiles> getProfileByCity(String city) {
+		// TODO Auto-generated method stub
+		return userProfileDao.findByCity(city);
+	}
+
+
+//	@Override
+//	public List<UserProfiles> selection(String city, String age, String gender) {
+//
+//		if(city==null && age==null && gender ==null) {
+//			
+//		}
+//		
+//		return null;
+//	}
 
 }

@@ -6,5 +6,7 @@ import org.springframework.stereotype.Repository;
 import com.matrimonial.app.entity.InterestShown;
 @Repository
 public interface InterestShownIDao extends JpaRepository<InterestShown, Integer> {
+	
+	public InterestShown findByFromIdAndTargetId(String fromId , String targetId );
 
 }
