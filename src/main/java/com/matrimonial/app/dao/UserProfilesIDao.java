@@ -1,0 +1,10 @@
+package com.matrimonial.app.dao;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.matrimonial.app.entity.UserProfiles;
+@Repository
+public interface UserProfilesIDao extends JpaRepository<UserProfiles, String> {
+
+}
