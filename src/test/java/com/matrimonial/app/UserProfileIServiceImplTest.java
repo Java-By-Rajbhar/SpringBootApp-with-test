@@ -1,5 +1,8 @@
 package com.matrimonial.app;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -46,5 +49,46 @@ public class UserProfileIServiceImplTest {
 		
 	}
 	
+	@Test
+	public void testgetProfileByCity() {
+		
+		UserProfiles userProfile =new UserProfiles("deep123", "123", "deepika", "salem", "female", 49, "obc");
+		UserProfiles userProfile2 =new UserProfiles("deep124", "123", "deepika", "salem", "female", 49, "obc");
+		UserProfiles userProfile3 =new UserProfiles("deep125", "123", "deepika", "salem", "female", 49, "obc");
+
+		List<UserProfiles> userprofileList=new ArrayList<UserProfiles>();
+		userprofileList.add(userProfile);
+		userprofileList.add(userProfile2);
+		userprofileList.add(userProfile3);
+
+		Mockito.when(userProfilesIDao.findByCity(userProfile.getCity())).thenReturn(userprofileList);
+		
+		List<UserProfiles> actualProfiles=userProfileIServiceImpl.getProfileByCity(userProfile.getCity());
+		System.out.println("act ="+actualProfiles.size());
+//		System.out.println("act ="+actualProfiles.size());
+
+		Assert.assertEquals(userprofileList, actualProfiles);
+	}
+	
+	
+	@Test
+	public void testNegativegetProfileByCity() {
+		
+		UserProfiles userProfile =new UserProfiles("deep123", "123", "deepika", "salem", "female", 49, "obc");
+		UserProfiles userProfile2 =new UserProfiles("deep124", "123", "deepika", "salem", "female", 49, "obc");
+		UserProfiles userProfile3 =new UserProfiles("deep125", "123", "deepika", "salem", "female", 49, "obc");
+
+		List<UserProfiles> userprofileList=new ArrayList<UserProfiles>();
+		userprofileList.add(userProfile);
+		userprofileList.add(userProfile2);
+		userprofileList.add(userProfile3);
+
+		
+		Mockito.when(userProfilesIDao.findByCity("jhgjs")).thenReturn(userprofileList);
+		
+		List<UserProfiles> actualProfiles=userProfileIServiceImpl.getProfileByCity(userProfile.getCity());
+//		Assert.assertEquals(userprofileList, actualProfiles);
+		Assert.assertNotEquals(userprofileList, actualProfiles);
+	}
 
 }
